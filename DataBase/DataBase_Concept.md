@@ -41,6 +41,7 @@
     - 스키마에 사용되는 제약 조건 정의
         - 스키마는 데이터베이스 제약조건에 대한 명세
     - 데이터의 물리적 순서를 정함
+    - DDL로 정의된 내용은 메타데이터(Meta Data)가 되며 시스템 카탈로그(System Catalog)에 저장
 
 ### DML (Data Manipulation Language 데이터 조작어)
 - 응용프로그램과 DBMS간의 언어
@@ -84,13 +85,48 @@
 - 데이터 중복성으로 인한 문제점
 <br> 분산으로 데이터 확장성이나 무결성을 유지할수 없음
 
-### DBMS 기능
+### DBMS 기능 3가지
 - 정의 기능(Definition Facility)
     - Create
+         - 스키마, 도메인, 테이블, 뷰, 인덱스 정의
+    - Create (스키마 정의)
+      <br> 1. ID가 선생님인 사용자의 스키마 '학교'를 정의
+    
+            CREATE SCHEMA 학교 AUTHORIZATION 선생님;
+
+    - Create (도메인 정의)
+      <br> 1. 군필/미필을 Y 혹은 N으로만 표기되는 도메인 ARMY를 정의
+
+            CREATE DOMAIN ARMY CHAR(1)  
+                DEFAULT 'YES'
+                CONSTRAINT ARMY CHECK (VALUE IN('Y', 'N'));
+
+    - Create (테이블 정의)
+      <br> 1. 학생 테이블 정의
+      <br> 2. 학과의 학과코드를 참조하는 학생의 전공은 외래키로 사용
+      <br> 3. 생년월일은 1980-01-01'부터 입력가능, 제약조건명은 '생년월일제약
+      <br> 4. 학과 테이블에서 삭제가 일어나면 관련된 튜플의 전공값을 Null로 변경
+      <br> 5. 학과 테이블에서 학과코드가 변경되면 전공 값도 같은 값으로 변경
+        
+            CREATE TABLE 학생 
+            (이름 VARCHAR(15) NOT NULL,
+                학번 CHAR(8),
+                전공 CHAR(5),
+                성별 SEX,
+                생년월일 DATE,
+                PRIMARY KEY(학번),
+                FOREGIN KEY(전공) REFERENCES 학과(학과코드)
+
+                        ON DELETE SET NULL
+
+                        ON UPDATE CASCADE,
+
+                CONSTRAINT 생년월일제약
+                    CHECK(생년월일>='1980-01-01'));
+    
 - 조작기능(Manipulation Facility)
     - 
 - 제어기능(Control Facility)
     - 
 
 
- 
