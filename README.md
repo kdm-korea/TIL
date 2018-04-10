@@ -9,8 +9,8 @@
 - 대략적인 기술만을 목적으로 한다. 상세적인 부분은 [블로그](https://kdm-korea.github.io/blog/)를 사용한다.
 
 # License
-## © 2015 thoughtbot, inc.
-## Distributed under the [Creative Commons Attribution License][license].
+© 2015 thoughtbot, inc.
+Distributed under the [Creative Commons Attribution License][license].
 [license]: http://creativecommons.org/licenses/by/3.0/
 
-## Names and logos for thoughtbot are trademarks of thoughtbot, inc
+Names and logos for thoughtbot are trademarks of thoughtbot, inc
