@@ -67,7 +67,7 @@
 - 데이터에 대한 총괄, 계획수립 및 관리, 통제하는 사람
 
 ### 데이터 설계자(Data Architect)
-- 데이터 구조를 쳬계적으로 관리하는 사람
+- 데이터 구조를 체계적으로 관리하는 사람
 
 ### 응용 프로그래머(Application Programmer)
 - 프로그램 언어에 DML을 삽입하여 데이터베이스에 접근하는 사람
@@ -104,7 +104,7 @@
         - 테이블 정의
         <br> 1. 학생 테이블 정의
         <br> 2. 학과의 학과코드를 참조하는 학생의 전공은 외래키로 사용
-        <br> 3. 생년월일은 1980-01-01'부터 입력가능, 제약조건명은 '생년월일제약
+        <br> 3. 생년월일은 1980-01-01'부터 입력가능, 제약조건명은 생년월일제약
         <br> 4. 학과 테이블에서 삭제가 일어나면 관련된 튜플의 전공값을 Null로 변경
         <br> 5. 학과 테이블에서 학과코드가 변경되면 전공 값도 같은 값으로 변경
             
@@ -123,25 +123,69 @@
 
                     CONSTRAINT 생년월일제약
                         CHECK(생년월일>='1980-01-01'));
+            
+            - 가변길이 문자열 - VARCHAR
+            - 고정길이 문자열 - CHAR
 
     - Alter
         - 테이블에 대한 정의 변경
         - ADD : 새로운 속성추가
                 
                 ALTER TABLE STUDENT ADD GRADE VARCHAR(3) DEFAULT '1';
+        
         - ALTER : 기본값 변경
 
                 ALTER TABLE STUDENT ALTER GRADE SET DEFAULT '2';
+        
         - DROP COLUMN : 속성 제거
 
                 ALTER TABLE STUDENT DROP COLUMN GRADE;
     - Drop
         - 스키마, 도메인, 뷰, 인덱스, 트리거 제거
+        - Drop 제거 옵션
+            - CASCADE
+                - 제거할 개체를 참조하는 모든 개체 제거
+            - RESTRICT
+                - 개체가 참조중인 경우 명령 취소
 
+        - SCHEMA 제거
+
+                DROP SCHEMA 스키마명;
+
+        - DOMAIN 제거
+
+                DROP DOMAIN 도메인명;
+
+        - TABLE 제거
+
+                DROP TABLE 테이블명;
+
+        - VIEW 제거
+
+                DROP VIEW 뷰명;
+
+        - INDEX 제거
+
+                DROP INDEX 인덱스명;
+
+        - TRIGGER 제거
+
+                DROP TRIGGER 트리거명;
+
+        - CONSTRAINT 제거
+
+                DROP CONSTRAINT 제약조건명;
 
 - 조작기능(Manipulation Facility)
-    - 
+    - Select
+    - Insert
+    - Delete
+    - Update
+
 - 제어기능(Control Facility)
-    - 
+    - Commit
+    - Rollback
+    - Grant
+    - Revoke
 
 
