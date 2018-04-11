@@ -88,42 +88,57 @@
 ### DBMS 기능 3가지
 - 정의 기능(Definition Facility)
     - Create
-         - 스키마, 도메인, 테이블, 뷰, 인덱스 정의
-    - Create (스키마 정의)
-      <br> 1. ID가 선생님인 사용자의 스키마 '학교'를 정의
-    
-            CREATE SCHEMA 학교 AUTHORIZATION 선생님;
-
-    - Create (도메인 정의)
-      <br> 1. 군필/미필을 Y 혹은 N으로만 표기되는 도메인 ARMY를 정의
-
-            CREATE DOMAIN ARMY CHAR(1)  
-                DEFAULT 'YES'
-                CONSTRAINT ARMY CHECK (VALUE IN('Y', 'N'));
-
-    - Create (테이블 정의)
-      <br> 1. 학생 테이블 정의
-      <br> 2. 학과의 학과코드를 참조하는 학생의 전공은 외래키로 사용
-      <br> 3. 생년월일은 1980-01-01'부터 입력가능, 제약조건명은 '생년월일제약
-      <br> 4. 학과 테이블에서 삭제가 일어나면 관련된 튜플의 전공값을 Null로 변경
-      <br> 5. 학과 테이블에서 학과코드가 변경되면 전공 값도 같은 값으로 변경
+        - 스키마, 도메인, 테이블, 뷰, 인덱스 정의
+        - 스키마 정의
+        <br> 1. ID가 선생님인 사용자의 스키마 '학교'를 정의
         
-            CREATE TABLE 학생 
-            (이름 VARCHAR(15) NOT NULL,
-                학번 CHAR(8),
-                전공 CHAR(5),
-                성별 SEX,
-                생년월일 DATE,
-                PRIMARY KEY(학번),
-                FOREGIN KEY(전공) REFERENCES 학과(학과코드)
+                CREATE SCHEMA 학교 AUTHORIZATION 선생님;
 
-                        ON DELETE SET NULL
+        - 도메인 정의
+        <br> 1. 군필/미필을 Y 혹은 N으로만 표기되는 도메인 ARMY를 정의
 
-                        ON UPDATE CASCADE,
+                CREATE DOMAIN ARMY CHAR(1)  
+                    DEFAULT 'YES'
+                    CONSTRAINT ARMY CHECK (VALUE IN('Y', 'N'));
 
-                CONSTRAINT 생년월일제약
-                    CHECK(생년월일>='1980-01-01'));
-    
+        - 테이블 정의
+        <br> 1. 학생 테이블 정의
+        <br> 2. 학과의 학과코드를 참조하는 학생의 전공은 외래키로 사용
+        <br> 3. 생년월일은 1980-01-01'부터 입력가능, 제약조건명은 '생년월일제약
+        <br> 4. 학과 테이블에서 삭제가 일어나면 관련된 튜플의 전공값을 Null로 변경
+        <br> 5. 학과 테이블에서 학과코드가 변경되면 전공 값도 같은 값으로 변경
+            
+                CREATE TABLE 학생 
+                (이름 VARCHAR(15) NOT NULL,
+                    학번 CHAR(8),
+                    전공 CHAR(5),
+                    성별 SEX,
+                    생년월일 DATE,
+                    PRIMARY KEY(학번),
+                    FOREGIN KEY(전공) REFERENCES 학과(학과코드)
+
+                            ON DELETE SET NULL
+
+                            ON UPDATE CASCADE,
+
+                    CONSTRAINT 생년월일제약
+                        CHECK(생년월일>='1980-01-01'));
+
+    - Alter
+        - 테이블에 대한 정의 변경
+        - ADD : 새로운 속성추가
+                
+                ALTER TABLE STUDENT ADD GRADE VARCHAR(3) DEFAULT '1';
+        - ALTER : 기본값 변경
+
+                ALTER TABLE STUDENT ALTER GRADE SET DEFAULT '2';
+        - DROP COLUMN : 속성 제거
+
+                ALTER TABLE STUDENT DROP COLUMN GRADE;
+    - Drop
+        - 스키마, 도메인, 뷰, 인덱스, 트리거 제거
+
+
 - 조작기능(Manipulation Facility)
     - 
 - 제어기능(Control Facility)
