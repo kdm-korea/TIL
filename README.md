@@ -8,6 +8,10 @@
 - 파일명은 영어
 - 대략적인 기술만을 목적으로 한다. 상세적인 부분은 [블로그](https://kdm-korea.github.io/blog/)를 사용한다.
 
+## 학습중인 프로그래밍 언어
+- DataBase
+    - [DataBase Concept](Database/DataBase_Concept.md)
+
 # License
 © 2015 thoughtbot, inc.
 Distributed under the [Creative Commons Attribution License][license].
