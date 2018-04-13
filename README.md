@@ -10,7 +10,7 @@
 
 ## 학습중인 프로그래밍 언어
 - DataBase
-    - [DataBase Concept](Database/DataBase_Concept.md)
+    - [DataBase Concept](Database\DataBase_Concept.md)
 
 # License
 © 2015 thoughtbot, inc.
