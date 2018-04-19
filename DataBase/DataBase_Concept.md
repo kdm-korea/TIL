@@ -1,7 +1,7 @@
 # 데이터베이스 정리
 
 ## 데이터베이스의 정의
-### 통합된 데이터(Integrated Data) 
+### 통합된 데이터(Integrated Data)
 - 검색의 효율성을 위해 중복이 최소화된 데이터
 
 ### 저장 데이터(Stored Data)
@@ -187,5 +187,4 @@
     - Rollback
     - Grant
     - Revoke
-
 
