@@ -1,4 +1,4 @@
-# Object, Function
+# Object, Function, Variable
 
 ## Definition
 
@@ -58,7 +58,7 @@ var Student = [];
     Student['age'] = 24;
     Student['garde'] = 2;
     Student.info = function(name, age, job){
-        console.log('name: '+name+' age: '+age+' grade:'+grade);
+        console.log('name: ' + name + ' age: ' + age + ' grade:' + grade);
 };
 ```
 위와 같이 학생이라는 ```객체```에는 ```이름```, ```나이```, ```직업``` 마지막으로 정보를 출력해주는 ```info```라는 함수가 포함되어 있습니다. 함수를 할당할 수도 있으며 위처럼 사용할 수도 있습니다.
