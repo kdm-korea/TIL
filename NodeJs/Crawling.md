@@ -16,7 +16,7 @@
 ### HTML Analyze
 
 ```html
-/!-- Infomation.html --/
+<!-- Infomation.html -->
 
 <html>
     <head>

@@ -10,7 +10,8 @@
 
 ### Model
 
-Model은 program에서 수행되는 로직으로 이루어져 있으며
+- ```User```가 사용하는 모든 데이터를 소유하고 있어야 한다.  
+- ```View```와 ```Controller```의 변동에 의한 파장이 없어야 한다.
 
 ```java
 Class Model{
@@ -21,22 +22,29 @@ Class Model{
 }
 ```
 
+### View
+
+- ```UserInterface```만 구성되고 로직은 없어야 한다.  
+- ```Model```과 ```Controller```의 변동에 의한 파장이 없어야 한다.  
+
+```java
+package MVC_Pattern;
+
+public class View {
+    
+	public static void main(String[] args) {
+		System.out.println("1  + 1 = ");
+	}
+}
+```
+
 ### Control
+
+- ```View```와 ```Model```의 알고리즘 변경 시마다 변경되어야 한다.  
+- ```Model```과 ```View```의 변동을 인지하고 이에 따른 로직을 Model에서 호출해야 한다.  
 
 Control은 Model과 View의 중간에서 ---하는 역할을 한다.
 
 ```java
 
-```
-
-### View
-
-View는 프로그램이 수행되는 로직이 없으며 User Interface로 구성되어 있다. 
-
-```java
-Class View{
-    public static void main(string[] arg){
-
-    }
-}
 ```
