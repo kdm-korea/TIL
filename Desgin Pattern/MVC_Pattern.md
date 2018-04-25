@@ -16,9 +16,24 @@
 ```java
 Class Model{
 
-    private int name(){
+	private String name;
+	private int age;
 
+	public void setName(String name){
+		this.name = name;
     }
+
+	public String getName(){
+		return name;
+	}
+
+	public void setAge(String age){
+		this.age = age;
+	}
+
+	public Int getAge(){
+		return age;
+	}
 }
 ```
 
@@ -31,11 +46,10 @@ Class Model{
 package MVC_Pattern;
 
 public class View {
-    
+
 	public static void main(String[] args) {
 		System.out.println("1  + 1 = ");
 	}
-}
 ```
 
 ### Control
@@ -46,5 +60,39 @@ public class View {
 Control은 Model과 View의 중간에서 ---하는 역할을 한다.
 
 ```java
+package MVC_Pattern;
 
+Class Control{
+
+	Model info;
+
+	public void setPeopleName(String name){
+		info = new setName(name);
+	}
+
+	public String getPeopleName(){
+		return info.getName();
+	}
+
+	public void setPeopleAge(int age){
+		info.setAge = age;
+	}
+
+	public int getPeopleAge(){
+		return info.getAge;
+	}
+
+	public void updateAge(){
+		return info.setAge++;
+	}
+
+
+	//
+
+}
+
+
+Class Contorl{
+	
+}
 ```
